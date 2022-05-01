@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="UnitSelected.svg"
+   inkscape:export-filename="E:\Projects\InventorySystem\Assets\Textures\UnitSelected.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="true"
+     units="px"
+     inkscape:zoom="3.6988215"
+     inkscape:cx="29.604024"
+     inkscape:cy="34.605617"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid824"
+       spacingx="2.1166667"
+       spacingy="2.1166667" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#33d17a;stroke:#26a269;stroke-width:1.05833333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 8.4666668,8.4666668 c 0,0 -6.3500001,2.1166662 -6.3500001,4.2333332 0,2.116667 6.3500001,2.116667 6.3500001,2.116667 0,0 6.3500002,0 6.3500002,-2.116667 0,-2.116667 -6.3500002,-4.2333332 -6.3500002,-4.2333332 z"
+       id="path5469"
+       sodipodi:nodetypes="cscsc" />
+    <circle
+       style="fill:#f9f06b;fill-opacity:1;stroke:#e5a50a;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path5434"
+       cx="8.4666662"
+       cy="8.4666662"
+       r="4.2333331" />
+  </g>
+</svg>
