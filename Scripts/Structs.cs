@@ -68,6 +68,7 @@ public struct UnitUI
     public Image selected;
     public TextMeshProUGUI health;
     public TextMeshProUGUI mana;
+    public TextMeshProUGUI damage;
     public Image weapon;
     public Image armor;
 }
