@@ -2,33 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public struct ItemsStats
 {
     public ItemType itemType;
-    public Image icon;
+    public Sprite icon;
     public string description;
     public int health;
     public int mana;
     public int damage;
     public int defense;
 
-    public ItemsStats(ItemType xitemType,Image xicon, string xdescription, int xhealth, int xmana, int xdamage, int xdefense){
-        itemType = xitemType;
-        icon = xicon;
-        description = xdescription;
-        health = xhealth;
-        mana = xmana;
-        damage = xdamage;
-        defense = xdefense;
+    public ItemsStats(ItemType _itemType, Sprite _icon, string _description, int _health, int _mana, int _damage, int _defense){
+        itemType = _itemType;
+        icon = _icon;
+        description = _description;
+        health = _health;
+        mana = _mana;
+        damage = _damage;
+        defense = _defense;
     }
 }
 
 [System.Serializable]
 public struct PlayerStats
 {
-    public bool hasUnit;
     public int health;
     public int mana;
     public int maxhealth;
@@ -38,17 +38,16 @@ public struct PlayerStats
     public ItemsStats weapon;
     public ItemsStats armor;
 
-    public PlayerStats(bool xhasUnit, int xhealth, int xmana, int xmaxhealth, int xmaxmana, int xdamage, int xdefense, ItemsStats xweapon, ItemsStats xarmor)
+    public PlayerStats(int _health, int _mana, int _maxhealth, int _maxmana, int _damage, int _defense, ItemsStats _weapon, ItemsStats _armor)
     {
-        hasUnit = xhasUnit;
-        health = xhealth;
-        mana = xmana;
-        maxhealth = xmaxhealth;
-        maxmana = xmaxmana;
-        damage = xdamage;
-        defense = xdefense;
-        weapon = xweapon;
-        armor = xarmor;
+        health = _health;
+        mana = _mana;
+        maxhealth = _maxhealth;
+        maxmana = _maxmana;
+        damage = _damage;
+        defense = _defense;
+        weapon = _weapon;
+        armor = _armor;
     }
 }
 
@@ -58,5 +57,17 @@ public enum ItemType
 
     Weapon = 1,
 
-    Armor = 2
+    Armor = 2,
+
+    Empty = 3
+}
+
+[System.Serializable]
+public struct UnitUI
+{
+    public Image selected;
+    public TextMeshProUGUI health;
+    public TextMeshProUGUI mana;
+    public Image weapon;
+    public Image armor;
 }
