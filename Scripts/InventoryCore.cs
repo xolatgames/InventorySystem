@@ -31,14 +31,13 @@ public class InventoryCore : ItemsBehavior
 
     public static int unitIconsCount;
 
-    public bool showed = true;
+    public static bool showed = true;
 
     public List<GameObject> showedObjects;
 
     private void Start()
     {
-        units.Add(new PlayerStats(12, 0, 12, 50, 0, 0, new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0), new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0)));
-        //items.Add(new ItemsStats(ItemType.Potion, unknown, "TestItem", 0, 0, 0, 0));
+        units.Add(new PlayerStats(1, 0, 18, 50, 0, 0, new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0), new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0)));
     }
 
     private void Update()
@@ -89,30 +88,32 @@ public class InventoryCore : ItemsBehavior
 
     public static void Save()
     {
-        string path = Path.Combine(Application.dataPath, "Items.sav");
-        File.WriteAllText(path, JsonUtility.ToJson(items));
-        path = Path.Combine(Application.dataPath, "Units.sav");
-        File.WriteAllText(path, JsonUtility.ToJson(units));
-        path = Path.Combine(Application.dataPath, "Chests.sav");
-        File.WriteAllText(path, JsonUtility.ToJson(chests));
+        string path = Path.Combine(Application.dataPath, "Save.sav");
+
+        SavingStats stats = new SavingStats
+        {
+            items = InventoryCore.items,
+            units = InventoryCore.units,
+            chests = InventoryCore.chests
+        };
+
+        File.WriteAllText(path, JsonUtility.ToJson(stats));
     }
 
     public static void Load()
     {
-        string path = Path.Combine(Application.dataPath, "Items.sav");
+        string path = Path.Combine(Application.dataPath, "Save.sav");
         if (File.Exists(path))
         {
-            items = JsonUtility.FromJson<List<ItemsStats>>(File.ReadAllText(path));
-        }
-        path = Path.Combine(Application.dataPath, "Units.sav");
-        if (File.Exists(path))
-        {
-            units = JsonUtility.FromJson<List<PlayerStats>>(File.ReadAllText(path));
-        }
-        path = Path.Combine(Application.dataPath, "Chests.sav");
-        if (File.Exists(path))
-        {
-            chests = JsonUtility.FromJson<List<string>>(File.ReadAllText(path));
+            string json = File.ReadAllText(path);
+
+            SavingStats stats = JsonUtility.FromJson<SavingStats>(json);
+
+            InventoryCore.items = stats.items;
+
+            InventoryCore.units = stats.units;
+
+            InventoryCore.chests = stats.chests;
         }
     }
 
@@ -131,15 +132,15 @@ public class InventoryCore : ItemsBehavior
             switch (items[n].itemType)
             {
                 case ItemType.Potion:
-                    UsePotion(items[n].health, items[n].mana, n);
+                    UsePotion(items[n].health, items[n].mana, items[n].damage, items[n].defense, n);
                     break;
 
                 case ItemType.Weapon:
-                    EquipWeapon(items[n].damage, n);
+                    EquipWeapon(items[n].damage, items[n].defense, n);
                     break;
 
                 case ItemType.Armor:
-                    EquipArmor(items[n].defense, n);
+                    EquipArmor(items[n].damage, items[n].defense, n);
                     break;
             }
         }
@@ -168,6 +169,8 @@ public class InventoryCore : ItemsBehavior
                 {
                     PlayerStats newValues = units[n];
                     newValues.damage -= newValues.weapon.damage;
+                    newValues.defense -= newValues.weapon.defense;
+                    if (newValues.health > (newValues.maxhealth + newValues.defense)) { newValues.health = newValues.maxhealth + newValues.defense; }
                     newValues.weapon = new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0);
                     units[n] = newValues;
                 }
@@ -184,7 +187,9 @@ public class InventoryCore : ItemsBehavior
                 if (AddItem(units[n].armor))
                 {
                     PlayerStats newValues = units[n];
+                    newValues.damage -= newValues.armor.damage;
                     newValues.defense -= newValues.armor.defense;
+                    if (newValues.health > (newValues.maxhealth + newValues.defense)) { newValues.health = newValues.maxhealth + newValues.defense; }
                     newValues.armor = new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0);
                     units[n] = newValues;
                 }

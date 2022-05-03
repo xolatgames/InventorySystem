@@ -72,3 +72,10 @@ public struct UnitUI
     public Image weapon;
     public Image armor;
 }
+
+public struct SavingStats
+{
+    public List<ItemsStats> items;
+    public List<PlayerStats> units;
+    public List<string> chests;
+}
