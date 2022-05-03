@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestBehavior : MonoBehaviour
+public class ChestBehavior : ClickableObject
 {
     public ItemsStats item;
 
     public string chestId;
-
-    public float seeRange = 3;
 
     private void Update()
     {
@@ -17,18 +15,12 @@ public class ChestBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnMouseDown()
+    
+    public override void Click()
     {
-        if (!InventoryCore.showed)
+        if (InventoryCore.AddItem(item))
         {
-            if (Vector3.Distance(transform.position, PlayerMovement.ptrans.position) < seeRange)
-            {
-                if (InventoryCore.AddItem(item))
-                {
-                    InventoryCore.chests.Add(chestId);
-                }
-            }
+            InventoryCore.chests.Add(chestId);
         }
     }
 }
