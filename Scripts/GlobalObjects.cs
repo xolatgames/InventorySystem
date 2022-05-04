@@ -20,7 +20,7 @@ public class GlobalObjects : MonoBehaviour
 
     public bool showed = true;
 
-    //Позиции игроков
+    //РџРѕР·РёС†РёРё РёРіСЂРѕРєРѕРІ
     public static List<Transform> ptrans = new List<Transform>();
 
     private void Start()
