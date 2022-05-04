@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//Только Инвентарь игрока и глобальные переменные
+//РўРѕР»СЊРєРѕ РРЅРІРµРЅС‚Р°СЂСЊ РёРіСЂРѕРєР°
 public class InventoryCore : ItemsBehavior
 {
     public List<Image> itemIcons;
