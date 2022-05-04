@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//Только Инвентарь игрока
 public class InventoryCore : ItemsBehavior
 {
     public static List<ItemsStats> items = new List<ItemsStats>();
@@ -34,6 +35,9 @@ public class InventoryCore : ItemsBehavior
     public static bool showed = true;
 
     public List<GameObject> showedObjects;
+
+    //Позиции игроков
+    public static List<Transform> ptrans = new List<Transform>();
 
     private void Start()
     {

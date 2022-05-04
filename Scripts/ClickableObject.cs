@@ -10,9 +10,13 @@ public abstract class ClickableObject : MonoBehaviour
     {
         if (!InventoryCore.showed)
         {
-            if (Vector3.Distance(transform.position, PlayerMovement.ptrans.position) < seeRange)
+            foreach (Transform i in InventoryCore.ptrans)
             {
-                Click();
+                if (Vector3.Distance(transform.position, i.position) < seeRange)
+                {
+                    Click();
+                    break;
+                }
             }
         }
     }

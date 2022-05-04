@@ -6,15 +6,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMovement : MonoBehaviour
 {
-    public static Transform ptrans;
-
     private NavMeshAgent navmesh;
 
     private void Start()
     {
         navmesh = GetComponent<NavMeshAgent>();
 
-        ptrans = transform;
+        InventoryCore.ptrans.Add(transform);
     }
 
     private void Update()
@@ -33,5 +31,10 @@ public class PlayerMovement : MonoBehaviour
         {
             navmesh.SetDestination(hit.point);
         }
+    }
+
+    private void OnDestroy()
+    {
+        InventoryCore.ptrans.Remove(transform);
     }
 }
