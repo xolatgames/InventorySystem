@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//Только Инвентарь игрока
+//Только Инвентарь игрока и глобальные переменные
 public class InventoryCore : ItemsBehavior
 {
     public static List<ItemsStats> items = new List<ItemsStats>();
