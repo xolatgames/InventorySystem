@@ -10,7 +10,7 @@ public class ChestBehavior : ClickableObject
 
     private void Update()
     {
-        if (InventoryCore.chests.Contains(chestId))
+        if (GlobalObjects.instance.chests.Contains(chestId))
         {
             Destroy(gameObject);
         }
@@ -18,9 +18,9 @@ public class ChestBehavior : ClickableObject
     
     public override void Click()
     {
-        if (InventoryCore.AddItem(item))
+        if (GlobalObjects.instance.AddItem(item))
         {
-            InventoryCore.chests.Add(chestId);
+            GlobalObjects.instance.chests.Add(chestId);
         }
     }
 }

@@ -7,17 +7,17 @@ using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
     private NavMeshAgent navmesh;
-
+    
     private void Start()
     {
         navmesh = GetComponent<NavMeshAgent>();
 
-        InventoryCore.ptrans.Add(transform);
+        GlobalObjects.ptrans.Add(transform);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !InventoryCore.showed)
+        if (Input.GetMouseButtonDown(0) && !GlobalObjects.instance.showed)
         {
             SetDestinationToMousePosition();
         }
@@ -35,6 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        InventoryCore.ptrans.Remove(transform);
+        GlobalObjects.ptrans.Remove(transform);
     }
 }

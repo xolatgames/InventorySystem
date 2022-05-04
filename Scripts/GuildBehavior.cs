@@ -10,7 +10,7 @@ public class GuildBehavior : ClickableObject
 
     private void Update()
     {
-        if (InventoryCore.chests.Contains(guildId))
+        if (GlobalObjects.instance.chests.Contains(guildId))
         {
             Destroy(gameObject);
         }
@@ -18,9 +18,9 @@ public class GuildBehavior : ClickableObject
 
     public override void Click()
     {
-        if (InventoryCore.AddUnit(stats))
+        if (GlobalObjects.instance.AddUnit(stats))
         {
-            InventoryCore.chests.Add(guildId);
+            GlobalObjects.instance.chests.Add(guildId);
         }
     }
 }

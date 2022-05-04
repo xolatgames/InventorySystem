@@ -8,9 +8,9 @@ public abstract class ClickableObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!InventoryCore.showed)
+        if (!GlobalObjects.instance.showed)
         {
-            foreach (Transform i in InventoryCore.ptrans)
+            foreach (Transform i in GlobalObjects.ptrans)
             {
                 if (Vector3.Distance(transform.position, i.position) < seeRange)
                 {

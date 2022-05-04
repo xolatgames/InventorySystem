@@ -709,6 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 0
     icon: {fileID: 21300000, guid: d0a0fac842369494db14ab8688c5165a, type: 3}
@@ -718,7 +719,6 @@ MonoBehaviour:
     damage: 0
     defense: 0
   chestId: Chest1-3
-  seeRange: 3
 --- !u!65 &186778462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 0
     icon: {fileID: 21300000, guid: 8fe67815d2ade604daf1747a5a4b5a42, type: 3}
@@ -1171,7 +1172,6 @@ MonoBehaviour:
     damage: 0
     defense: 0
   chestId: Chest1-1
-  seeRange: 3
 --- !u!1 &311732550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 2
     icon: {fileID: 21300000, guid: 8ce0a269ae7a60f4999b40920704ab4b, type: 3}
@@ -1503,7 +1504,6 @@ MonoBehaviour:
     damage: 0
     defense: 3
   chestId: Chest1-8
-  seeRange: 3
 --- !u!65 &347865531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1683,6 +1683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87b8f250cf61c643b85159cd48fa74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   stats:
     health: 1
     mana: 0
@@ -1707,7 +1708,6 @@ MonoBehaviour:
       damage: 0
       defense: 0
   guildId: Guild1-2
-  seeRange: 3
 --- !u!136 &404506241
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2497,6 +2497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 0
     icon: {fileID: 21300000, guid: 1c5d73877ccee3948b404dc453103b56, type: 3}
@@ -2506,7 +2507,6 @@ MonoBehaviour:
     damage: 0
     defense: 0
   chestId: Chest1-4
-  seeRange: 3
 --- !u!65 &570601530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3472,6 +3472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87b8f250cf61c643b85159cd48fa74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   stats:
     health: 1
     mana: 0
@@ -3496,7 +3497,6 @@ MonoBehaviour:
       damage: 0
       defense: 0
   guildId: Guild1-1
-  seeRange: 3
 --- !u!1 &899063336
 GameObject:
   m_ObjectHideFlags: 0
@@ -4106,6 +4106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 1
     icon: {fileID: 21300000, guid: 2cf75be1753a1db499739dc8ef45e1e3, type: 3}
@@ -4115,7 +4116,6 @@ MonoBehaviour:
     damage: 3
     defense: 0
   chestId: Chest1-6
-  seeRange: 3
 --- !u!65 &1009850062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4226,6 +4226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 1
     icon: {fileID: 21300000, guid: 08dffb03305ea914bb73fc4876941756, type: 3}
@@ -4235,7 +4236,6 @@ MonoBehaviour:
     damage: 5
     defense: 0
   chestId: Chest1-7
-  seeRange: 3
 --- !u!65 &1040081417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5419,6 +5419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 2
     icon: {fileID: 21300000, guid: 6d53919a9a5134746a27701fb3d04090, type: 3}
@@ -5428,7 +5429,6 @@ MonoBehaviour:
     damage: 0
     defense: 6
   chestId: Chest1-9
-  seeRange: 3
 --- !u!65 &1410888553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5708,6 +5708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 0
     icon: {fileID: 21300000, guid: 2df448fd6ef787a40885e952269e3eb6, type: 3}
@@ -5717,7 +5718,6 @@ MonoBehaviour:
     damage: 0
     defense: 0
   chestId: Chest1-2
-  seeRange: 3
 --- !u!65 &1571281086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6718,6 +6718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0825fc4345b18446ac942f8197288b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeRange: 3
   item:
     itemType: 0
     icon: {fileID: 21300000, guid: 1c5d73877ccee3948b404dc453103b56, type: 3}
@@ -6727,7 +6728,6 @@ MonoBehaviour:
     damage: 0
     defense: 0
   chestId: Chest1-5
-  seeRange: 3
 --- !u!65 &1696478669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7492,6 +7492,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969181615}
   m_CullTransparentMesh: 1
+--- !u!1 &1994226910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994226912}
+  - component: {fileID: 1994226911}
+  m_Layer: 0
+  m_Name: Globals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1994226911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994226910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e472008950964d64394f701967cab0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  units:
+  - health: 1
+    mana: 0
+    maxhealth: 18
+    maxmana: 50
+    damage: 0
+    defense: 0
+    weapon:
+      itemType: 3
+      icon: {fileID: 21300000, guid: ba713c23621a52245852983d767eecc6, type: 3}
+      description: 
+      health: 0
+      mana: 0
+      damage: 0
+      defense: 0
+    armor:
+      itemType: 3
+      icon: {fileID: 21300000, guid: ba713c23621a52245852983d767eecc6, type: 3}
+      description: 
+      health: 0
+      mana: 0
+      damage: 0
+      defense: 0
+  chests: []
+  selected: 0
+  itemIconsCount: 0
+  unitIconsCount: 0
+  showed: 1
+--- !u!4 &1994226912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994226910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1256797, y: 10.046441, z: 13.136448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077792034
 GameObject:
   m_ObjectHideFlags: 0

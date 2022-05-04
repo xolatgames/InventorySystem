@@ -5,15 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//РўРѕР»СЊРєРѕ РРЅРІРµРЅС‚Р°СЂСЊ РёРіСЂРѕРєР° Рё РіР»РѕР±Р°Р»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ
+//Только Инвентарь игрока и глобальные переменные
 public class InventoryCore : ItemsBehavior
 {
-    public static List<ItemsStats> items = new List<ItemsStats>();
-
-    public static List<PlayerStats> units = new List<PlayerStats>();
-
-    public static List<string> chests = new List<string>();
-
     public List<Image> itemIcons;
 
     public List<UnitUI> unitIcons;
@@ -26,39 +20,23 @@ public class InventoryCore : ItemsBehavior
 
     public Sprite unknown;
 
-    public static int selected = 0;
-
-    public static int itemIconsCount;
-
-    public static int unitIconsCount;
-
-    public static bool showed = true;
-
     public List<GameObject> showedObjects;
-
-    //РџРѕР·РёС†РёРё РёРіСЂРѕРєРѕРІ
-    public static List<Transform> ptrans = new List<Transform>();
-
-    private void Start()
-    {
-        units.Add(new PlayerStats(1, 0, 18, 50, 0, 0, new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0), new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0)));
-    }
 
     private void Update()
     {
-        itemIconsCount = itemIcons.Count;
-        unitIconsCount = unitIcons.Count;
+        GlobalObjects.instance.itemIconsCount = itemIcons.Count;
+        GlobalObjects.instance.unitIconsCount = unitIcons.Count;
 
         for (int i = 0; i < itemIcons.Count; i++)
         {
             itemIcons[i].sprite = unknown;
         }
 
-        for (int i = 0; i < items.Count; i++)
+        for (int i = 0; i < GlobalObjects.instance.items.Count; i++)
         {
             if (itemIcons[i] != null)
             {
-                itemIcons[i].sprite = items[i].icon;
+                itemIcons[i].sprite = GlobalObjects.instance.items[i].icon;
             }
         }
 
@@ -72,39 +50,39 @@ public class InventoryCore : ItemsBehavior
             unitIcons[i].damage.text = "EMPTY";
         }
 
-        for (int i = 0; i < units.Count; i++)
+        for (int i = 0; i < GlobalObjects.instance.units.Count; i++)
         {
             if (unitIcons[i].selected != null)
             {
-                unitIcons[i].weapon.sprite = units[i].weapon.icon;
-                unitIcons[i].armor.sprite = units[i].armor.icon;
-                unitIcons[i].health.text = "HP: " + units[i].health + "/" + (units[i].maxhealth + +units[i].defense);
-                unitIcons[i].mana.text = "MP: " + units[i].mana + "/" + units[i].maxmana;
-                unitIcons[i].damage.text = "Dam: " + units[i].damage;
+                unitIcons[i].weapon.sprite = GlobalObjects.instance.units[i].weapon.icon;
+                unitIcons[i].armor.sprite = GlobalObjects.instance.units[i].armor.icon;
+                unitIcons[i].health.text = "HP: " + GlobalObjects.instance.units[i].health + "/" + (GlobalObjects.instance.units[i].maxhealth + GlobalObjects.instance.units[i].defense);
+                unitIcons[i].mana.text = "MP: " + GlobalObjects.instance.units[i].mana + "/" + GlobalObjects.instance.units[i].maxmana;
+                unitIcons[i].damage.text = "Dam: " + GlobalObjects.instance.units[i].damage;
             }
         }
 
-        if (units.Count > 0)
+        if (GlobalObjects.instance.units.Count > 0)
         {
-            unitIcons[selected].selected.sprite = unitSelected;
+            unitIcons[GlobalObjects.instance.selected].selected.sprite = unitSelected;
         }
     }
 
-    public static void Save()
+    public void Save()
     {
         string path = Path.Combine(Application.dataPath, "Save.sav");
 
         SavingStats stats = new SavingStats
         {
-            items = InventoryCore.items,
-            units = InventoryCore.units,
-            chests = InventoryCore.chests
+            items = GlobalObjects.instance.items,
+            units = GlobalObjects.instance.units,
+            chests = GlobalObjects.instance.chests
         };
 
         File.WriteAllText(path, JsonUtility.ToJson(stats));
     }
 
-    public static void Load()
+    public void Load()
     {
         string path = Path.Combine(Application.dataPath, "Save.sav");
         if (File.Exists(path))
@@ -113,70 +91,57 @@ public class InventoryCore : ItemsBehavior
 
             SavingStats stats = JsonUtility.FromJson<SavingStats>(json);
 
-            InventoryCore.items = stats.items;
+            GlobalObjects.instance.items = stats.items;
 
-            InventoryCore.units = stats.units;
+            GlobalObjects.instance.units = stats.units;
 
-            InventoryCore.chests = stats.chests;
+            GlobalObjects.instance.chests = stats.chests;
         }
     }
 
     public void LookDescription(int n)
     {
-        if (items.Count > n)
+        if (GlobalObjects.instance.items.Count > n)
         {
-            description.text = items[n].description;
+            description.text = GlobalObjects.instance.items[n].description;
         }
     }
 
     public void ClickItem(int n)
     {
-        if (items.Count > n)
+        if (GlobalObjects.instance.items.Count > n)
         {
-            switch (items[n].itemType)
+            switch (GlobalObjects.instance.items[n].itemType)
             {
                 case ItemType.Potion:
-                    UsePotion(items[n].health, items[n].mana, items[n].damage, items[n].defense, n);
+                    UsePotion(GlobalObjects.instance.items[n].health, GlobalObjects.instance.items[n].mana, GlobalObjects.instance.items[n].damage, GlobalObjects.instance.items[n].defense, n);
                     break;
 
                 case ItemType.Weapon:
-                    EquipWeapon(items[n].damage, items[n].defense, n);
+                    EquipWeapon(GlobalObjects.instance.items[n].damage, GlobalObjects.instance.items[n].defense, n);
                     break;
 
                 case ItemType.Armor:
-                    EquipArmor(items[n].damage, items[n].defense, n);
+                    EquipArmor(GlobalObjects.instance.items[n].damage, GlobalObjects.instance.items[n].defense, n);
                     break;
             }
         }
     }
 
-    public static bool AddItem(ItemsStats item)
-    {
-        if (items.Count < itemIconsCount)
-        {
-            items.Add(item);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public void ClickWeapon (int n)
     {
-        if (units.Count > n)
+        if (GlobalObjects.instance.units.Count > n)
         {
-            if (units[n].weapon.itemType != ItemType.Empty)
+            if (GlobalObjects.instance.units[n].weapon.itemType != ItemType.Empty)
             {
-                if (AddItem(units[n].weapon))
+                if (GlobalObjects.instance.AddItem(GlobalObjects.instance.units[n].weapon))
                 {
-                    PlayerStats newValues = units[n];
+                    PlayerStats newValues = GlobalObjects.instance.units[n];
                     newValues.damage -= newValues.weapon.damage;
                     newValues.defense -= newValues.weapon.defense;
                     if (newValues.health > (newValues.maxhealth + newValues.defense)) { newValues.health = newValues.maxhealth + newValues.defense; }
                     newValues.weapon = new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0);
-                    units[n] = newValues;
+                    GlobalObjects.instance.units[n] = newValues;
                 }
             }
         }
@@ -184,44 +149,31 @@ public class InventoryCore : ItemsBehavior
 
     public void ClickArmor(int n)
     {
-        if (units.Count > n)
+        if (GlobalObjects.instance.units.Count > n)
         {
-            if (units[n].armor.itemType != ItemType.Empty)
+            if (GlobalObjects.instance.units[n].armor.itemType != ItemType.Empty)
             {
-                if (AddItem(units[n].armor))
+                if (GlobalObjects.instance.AddItem(GlobalObjects.instance.units[n].armor))
                 {
-                    PlayerStats newValues = units[n];
+                    PlayerStats newValues = GlobalObjects.instance.units[n];
                     newValues.damage -= newValues.armor.damage;
                     newValues.defense -= newValues.armor.defense;
                     if (newValues.health > (newValues.maxhealth + newValues.defense)) { newValues.health = newValues.maxhealth + newValues.defense; }
                     newValues.armor = new ItemsStats(ItemType.Empty, unknown, "", 0, 0, 0, 0);
-                    units[n] = newValues;
+                    GlobalObjects.instance.units[n] = newValues;
                 }
             }
         }
     }
 
-    public static bool AddUnit(PlayerStats unit)
-    {
-        if (units.Count < unitIconsCount)
-        {
-            units.Add(unit);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public void ChangeUnit(int n)
     {
-        selected = n;
+        GlobalObjects.instance.selected = n;
     }
 
     public void ShownHide()
     {
-        if (showed)
+        if (GlobalObjects.instance.showed)
         {
             foreach (GameObject i in showedObjects)
             {
@@ -236,6 +188,6 @@ public class InventoryCore : ItemsBehavior
             }
         }
 
-        showed = !showed;
+        GlobalObjects.instance.showed = !GlobalObjects.instance.showed;
     }
 }
