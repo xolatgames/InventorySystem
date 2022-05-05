@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//Только Инвентарь игрока
 public class InventoryCore : ItemsBehavior
 {
     public List<Image> itemIcons;
