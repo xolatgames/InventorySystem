@@ -8,7 +8,7 @@ public abstract class ClickableObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!GlobalObjects.instance.showed)
+        if (!GlobalObjects.inventories[0].showed)
         {
             foreach (Transform i in GlobalObjects.ptrans)
             {

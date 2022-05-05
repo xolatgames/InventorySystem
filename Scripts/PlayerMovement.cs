@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !GlobalObjects.instance.showed)
+        if (Input.GetMouseButtonDown(0) && !GlobalObjects.inventories[0].showed)
         {
             SetDestinationToMousePosition();
         }

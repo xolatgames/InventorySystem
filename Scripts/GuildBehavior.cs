@@ -18,9 +18,13 @@ public class GuildBehavior : ClickableObject
 
     public override void Click()
     {
-        if (GlobalObjects.instance.AddUnit(stats))
+        foreach (InventoryCore i in GlobalObjects.inventories)
         {
-            GlobalObjects.instance.chests.Add(guildId);
+            if (i.AddUnit(stats))
+            {
+                GlobalObjects.instance.chests.Add(guildId);
+                break;
+            }
         }
     }
 }

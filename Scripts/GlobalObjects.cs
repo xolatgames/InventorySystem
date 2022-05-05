@@ -6,22 +6,12 @@ public class GlobalObjects : MonoBehaviour
 {
     public static GlobalObjects instance = null;
 
-    public List<ItemsStats> items = new List<ItemsStats>();
-
-    public List<PlayerStats> units = new List<PlayerStats>();
-
     public List<string> chests = new List<string>();
 
-    public int selected = 0;
-
-    public int itemIconsCount;
-
-    public int unitIconsCount;
-
-    public bool showed = true;
-
-    //РџРѕР·РёС†РёРё РёРіСЂРѕРєРѕРІ
+    //Позиции игроков
     public static List<Transform> ptrans = new List<Transform>();
+
+    public static List<InventoryCore> inventories = new List<InventoryCore>();
 
     private void Start()
     {
@@ -35,31 +25,5 @@ public class GlobalObjects : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    public bool AddItem(ItemsStats item)
-    {
-        if (items.Count < itemIconsCount)
-        {
-            items.Add(item);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public bool AddUnit(PlayerStats unit)
-    {
-        if (units.Count < unitIconsCount)
-        {
-            units.Add(unit);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

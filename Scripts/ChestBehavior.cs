@@ -18,9 +18,13 @@ public class ChestBehavior : ClickableObject
     
     public override void Click()
     {
-        if (GlobalObjects.instance.AddItem(item))
+        foreach (InventoryCore i in GlobalObjects.inventories)
         {
-            GlobalObjects.instance.chests.Add(chestId);
+            if (i.AddItem(item))
+            {
+                GlobalObjects.instance.chests.Add(chestId);
+                break;
+            }
         }
     }
 }
