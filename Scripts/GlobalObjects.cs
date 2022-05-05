@@ -8,7 +8,7 @@ public class GlobalObjects : MonoBehaviour
 
     public List<string> chests = new List<string>();
 
-    //Позиции игроков
+    //РџРѕР·РёС†РёРё РёРіСЂРѕРєРѕРІ
     public static List<Transform> ptrans = new List<Transform>();
 
     public static List<InventoryCore> inventories = new List<InventoryCore>();
